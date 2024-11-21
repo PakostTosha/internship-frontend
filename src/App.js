@@ -1,5 +1,6 @@
 import { Component } from "react";
 import StarWarsHeroe from "./components/StarWarsHeroe";
+import "./App.css";
 
 class App extends Component {
 	constructor() {
@@ -51,16 +52,19 @@ class App extends Component {
 			.catch((error) => console.log("Возникла ошибка:", error));
 	}
 
+	// Массив планет рекурсивным перебором
+	// getAllPlanets(url) {}
+
 	render() {
 		const { isLoading, error, allHeroes } = this.state;
 		return (
-			<div>
+			<div className="heroes">
 				{isLoading
 					? "Загрузка данных..." // <Loading />
 					: error
 					? `Не удалось загрузить данные. ${error}` // <Error />
 					: allHeroes.map((heroe, index) => (
-							<StarWarsHeroe key={index} heroe={heroe} />
+							<StarWarsHeroe key={index} heroe={heroe} id={index} />
 					  ))}
 			</div>
 		);

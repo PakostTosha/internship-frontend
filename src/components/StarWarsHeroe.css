@@ -1,0 +1,52 @@
+.heroe {
+	border: 1px solid #d8cd02;
+	padding: 10px 10px 15px;
+	flex: 1 1 700px;
+	display: flex;
+	flex-direction: column;
+}
+
+.heroe h1,
+.heroe h2 {
+	margin: 0;
+	margin-bottom: 15px;
+}
+
+.heroe__name {
+	border-bottom: 1px solid #000;
+}
+
+.heroe__info {
+	margin-bottom: 15px;
+}
+
+.heroe__info li {
+	margin: 0;
+	padding: 3px;
+	margin-bottom: 5px;
+	border: 1px solid #000;
+}
+
+.info {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+}
+
+button {
+	padding: 10px 24px;
+	border-radius: 100px 100px 100px 100px;
+	border: none;
+	color: #fff;
+	background-color: #65558f;
+	cursor: pointer;
+	margin-top: auto;
+	margin-right: auto;
+}
+
+button:hover {
+	background: rgba(0, 0, 0, 0);
+	color: #65558f;
+	box-shadow: inset 0 0 0 3px #65558f;
+}
