@@ -1,9 +1,7 @@
 import React from "react";
 import "./StarWarsHeroe.css";
 
-export default function StarWarsHeroe(props) {
-	const heroe = props.heroe;
-
+export default function StarWarsHeroe({ heroe, id, setActive }) {
 	const {
 		name,
 		height,
@@ -44,7 +42,7 @@ export default function StarWarsHeroe(props) {
 		<div className="heroe">
 			<div className="heroe__title">
 				<h1>
-					Герой {props.id + 1}: <span className="heroe__name">{name}</span>
+					Герой {id + 1}: <span className="heroe__name">{name}</span>
 				</h1>
 			</div>
 			<div className="heroe__info">
@@ -67,7 +65,7 @@ export default function StarWarsHeroe(props) {
 					</li>
 				</ul>
 			</div>
-			<button>Транспортные средства</button>
+			<button onClick={() => setActive(true)}>Транспортные средства</button>
 		</div>
 	);
 }

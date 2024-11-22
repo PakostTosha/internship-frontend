@@ -1,6 +1,7 @@
 import { Component } from "react";
-import StarWarsHeroe from "./components/StarWarsHeroe";
+import StarWarsHeroe from "./components/StarWarsHeroe/StarWarsHeroe.js";
 import "./App.css";
+import Modal from "./components/Modal/Modal.jsx";
 
 class App extends Component {
 	constructor() {
@@ -9,7 +10,10 @@ class App extends Component {
 			allHeroes: [],
 			isLoading: true,
 			error: "",
+			modalActive: true,
 		};
+
+		this.setModalActive = this.setModalActive.bind(this);
 	}
 
 	componentDidMount() {
@@ -55,18 +59,39 @@ class App extends Component {
 	// Массив планет рекурсивным перебором
 	// getAllPlanets(url) {}
 
+	// Взаимодействие с модальным окном
+	setModalActive(boolVal) {
+		this.setState({ modalActive: boolVal });
+	}
+
 	render() {
 		const { isLoading, error, allHeroes } = this.state;
+
+		// Визуализация загрузки
+		if (isLoading) {
+			return <div className="heroes">Загрузка данных...</div>;
+		}
+
+		// Визуализация ошибки
+		if (error) {
+			return <div className="heroes">Не удалось загрузить данные. {error}</div>;
+		}
+
+		// Всё OK - список героев
 		return (
-			<div className="heroes">
-				{isLoading
-					? "Загрузка данных..." // <Loading />
-					: error
-					? `Не удалось загрузить данные. ${error}` // <Error />
-					: allHeroes.map((heroe, index) => (
-							<StarWarsHeroe key={index} heroe={heroe} id={index} />
-					  ))}
-			</div>
+			<>
+				<div className="heroes">
+					{allHeroes.map((heroe, index) => (
+						<StarWarsHeroe
+							key={index}
+							heroe={heroe}
+							id={index}
+							setActive={this.setModalActive}
+						/>
+					))}
+				</div>
+				<Modal active={this.state.modalActive} setActive={this.setModalActive} />
+			</>
 		);
 	}
 }
