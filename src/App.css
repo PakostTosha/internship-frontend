@@ -15,3 +15,8 @@ body > div {
 	flex-wrap: wrap;
 	gap: 10px;
 }
+
+.modal-active {
+	overflow: hidden;
+	padding-right: 16px;
+}

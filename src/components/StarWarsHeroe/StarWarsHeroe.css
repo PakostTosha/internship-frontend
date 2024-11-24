@@ -1,5 +1,5 @@
 .heroe {
-	border: 1px solid #d8cd02;
+	border: 1px solid #65558f;
 	padding: 10px 10px 15px;
 	flex: 1 1 700px;
 	display: flex;
@@ -24,7 +24,7 @@
 	margin: 0;
 	padding: 3px;
 	margin-bottom: 5px;
-	border: 1px solid #000;
+	border-bottom: 1px solid #000;
 }
 
 .info {
@@ -41,8 +41,6 @@ button {
 	color: #fff;
 	background-color: #65558f;
 	cursor: pointer;
-	margin-top: auto;
-	margin-right: auto;
 }
 
 button:hover {
@@ -56,4 +54,9 @@ button:active {
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset,
 		0 0 8px rgba(101, 85, 143, 0.6);
 	outline: 0 none;
+}
+
+.heroe__vehicles {
+	margin-top: auto;
+	margin-right: auto;
 }

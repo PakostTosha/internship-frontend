@@ -1,7 +1,7 @@
 import React from "react";
 import "./StarWarsHeroe.css";
 
-export default function StarWarsHeroe({ heroe, id, setActive }) {
+export default function StarWarsHeroe({ heroe, id, setActive, dataFromState }) {
 	const {
 		name,
 		height,
@@ -17,26 +17,6 @@ export default function StarWarsHeroe({ heroe, id, setActive }) {
 		vehicles,
 		starships,
 	} = heroe;
-
-	// // Метод обработки массива url и конвертации в строку
-	// const getStrFromArr = (arrUrl) => {
-	// 	let infoArr = [];
-	// 	arrUrl.forEach((url) => {
-	// 		fetch(url)
-	// 			.then((response) => response.json())
-	// 			.then((data) => {
-	// 				infoArr.push(Object.values(data)[0]);
-	// 			});
-	// 	});
-	// 	return infoArr.join(", ");
-	// };
-
-	// // species - name (1)
-	// // films - title (1)
-	// // vehicles - name (1)
-	// // starships - name (1)
-
-	// console.log(getStrFromArr(films));
 
 	return (
 		<div className="heroe">
@@ -65,7 +45,16 @@ export default function StarWarsHeroe({ heroe, id, setActive }) {
 					</li>
 				</ul>
 			</div>
-			<button onClick={() => setActive(true)}>Транспортные средства</button>
+			<button
+				className="heroe__vehicles"
+				onClick={() => {
+					setActive(true, heroe);
+					//Передадим в setActive true и текущего people (в нем будут ссылки на транспорт),
+					//people должен быть расположен в State главного приложения, модальное окно возьмёт его оттуда
+				}}
+			>
+				Транспортные средства
+			</button>
 		</div>
 	);
 }

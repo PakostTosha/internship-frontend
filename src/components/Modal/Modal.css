@@ -6,6 +6,7 @@
 	top: 0;
 	left: 0;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	transform: scale(0);
@@ -15,8 +16,38 @@
 	transform: scale(1);
 }
 
+.modal.active {
+	overflow: hidden;
+}
+
+.modal__header,
+.modal__footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #e5e1f4;
+	padding: 10px;
+}
+
+.modal__header {
+	border-radius: 20px 20px 0 0;
+	padding-right: 30px;
+	padding-left: 30px;
+}
+
+.modal__footer {
+	border-radius: 0 0 15px 15px;
+}
+
 .modal__content {
-	padding: 20px;
-	border-radius: 12px;
 	background-color: #fff;
+	padding: 20px;
+}
+
+.vehicles {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	list-style: none;
+	flex-wrap: wrap;
 }
