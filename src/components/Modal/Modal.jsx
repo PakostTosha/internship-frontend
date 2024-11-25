@@ -3,7 +3,6 @@ import VehicleCard from "../VehicleCard/VehicleCard";
 import "./Modal.css";
 
 export default function Modal({ active, setActive, heroe }) {
-	// Выполнить запрос на получение ТС из списка и добавить в состояние
 	const [vehicles, setVehicles] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -11,21 +10,20 @@ export default function Modal({ active, setActive, heroe }) {
 		getVehiclesList(heroe.vehicles);
 	}, []);
 
+	// Отправление запросов к API
 	const getVehiclesList = (vehicleListUrls) => {
-		// Если есть список ТС, то - запросы
 		if (vehicleListUrls.length > 0) {
 			Promise.all(
 				vehicleListUrls.map((url) => fetch(url).then((response) => response.json()))
 			)
 				.then((data) => {
-					setVehicles(data); // Устанавливаем весь массив данных
-					setIsLoading(false); // Устанавливаем состояние загрузки в false
+					setVehicles(data);
+					setIsLoading(false);
 				})
 				.catch((error) => {
 					console.error("Ошибка при загрузке данных:", error);
-					setIsLoading(false); // Устанавливаем состояние загрузки в false даже при ошибке
+					setIsLoading(false);
 				});
-			// Иначе список пуст, завершить загрузку
 		} else {
 			setIsLoading(false);
 		}
@@ -44,7 +42,7 @@ export default function Modal({ active, setActive, heroe }) {
 				</>
 			));
 		} else {
-			vehiclesList = "Транспортных средств нет";
+			vehiclesList = "К сожалению, данные о транспортных средствах отсутствуют";
 		}
 	}
 

@@ -11,9 +11,6 @@ export default function Loading() {
 					<div className="inner three"></div>
 					<div className="title">Загрузка...</div>
 				</div>
-				{/* <div className="title">
-					<p>Loading...</p>
-				</div> */}
 			</div>
 		</>
 	);

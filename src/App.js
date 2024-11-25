@@ -9,7 +9,6 @@ class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			// Реорганизовать состояние??
 			people: [],
 			planets: [],
 			species: [],
@@ -121,7 +120,6 @@ class App extends Component {
 			);
 		}
 
-		// Всё OK - список героев
 		return (
 			<>
 				<div className="heroes">
@@ -134,13 +132,6 @@ class App extends Component {
 							setActive={this.setModalActive}
 						/>
 					))}
-					{/* <StarWarsHeroe
-						key={0}
-						heroe={people[0]}
-						id={0}
-						dataFromState={heroInfo}
-						setActive={this.setModalActive}
-					/> */}
 				</div>
 				{modal}
 			</>
